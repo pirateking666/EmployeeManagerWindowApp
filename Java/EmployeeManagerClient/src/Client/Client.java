@@ -61,6 +61,7 @@ public class Client extends JFrame{
 	public static DataInputStream isTran = null;
 	public static DataOutputStream osTran = null;
 	public static JTextArea chatLogText;
+	public static JTextArea fileLog;
 	public static JList<String> list;
 	public static File file;
 	public static DefaultListModel<String> listModel;
@@ -153,7 +154,7 @@ public class Client extends JFrame{
 												s = is.readUTF();
 												if(s.equals("@@@"))
 													break;
-//												chatLogText.append(s);
+												chatLogText.append(s);
 											} catch (IOException e) {
 												// TODO Auto-generated catch block
 												e.printStackTrace();
