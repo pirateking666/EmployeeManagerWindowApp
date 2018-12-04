@@ -1,7 +1,7 @@
 Welcome to Project window application Employee manager!
 
 - You need add database in mysql server first (file .SQL in folder Database).
-- In folder Java you will see 2 project 1 for server, 1 for client.
+- In folder Java you will see 2 project 1 for server, 1 for client, run Client.java after run Server.java.
 - Action Change Password, Offer DayOff, Check In/Out will use RMI port 12345
 - Action Chat will use multithread socket with port 12346
 - Action Public File will use multithread socket with port 12347
