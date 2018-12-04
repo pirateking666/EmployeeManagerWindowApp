@@ -188,7 +188,7 @@ public class Client extends JFrame{
 													e1.printStackTrace();
 												}
 												String[] sa = s.split("-");
-												chatLogText.append("[GetFile] Waiting for get file "+sa[1]+"...\n");
+												fileLog.append("[GetFile] Waiting for get file "+sa[1]+"...\n");
 												if(sa[0].equals("get")) {
 													Long filesize = Long.parseLong(sa[2]);
 													try {
@@ -205,7 +205,7 @@ public class Client extends JFrame{
 															bos.flush();
 														}
 														bos.close();
-														chatLogText.append("[GetFile] Get file "+sa[1]+" done!");
+														fileLog.append("[GetFile] Get file "+sa[1]+" done!");
 													} catch (FileNotFoundException e) {
 														// TODO Auto-generated catch block
 														e.printStackTrace();
@@ -217,7 +217,7 @@ public class Client extends JFrame{
 												}
 												else if(sa[0].equals("upload"))
 												{
-													chatLogText.append("[UploadFile] Waitting for upload file "+sa[1]+" to server...\n");
+													fileLog.append("[UploadFile] Waitting for upload file "+sa[1]+" to server...\n");
 													Long filesize = file.length();
 													try {
 														osTran.writeLong(filesize);
@@ -231,7 +231,7 @@ public class Client extends JFrame{
 																osTran.flush();
 															}
 															bis.close();
-															chatLogText.append("[UploadFile] Upload file "+sa[1]+" to server done!");
+															fileLog.append("[UploadFile] Upload file "+sa[1]+" to server done!");
 														}
 													} catch (IOException e) {
 														// TODO Auto-generated catch block
@@ -865,7 +865,7 @@ public class Client extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				try {
-					int choose = JOptionPane.showConfirmDialog(null, "Are you sure to accept?", "Accept", JOptionPane.YES_NO_OPTION);
+					int choose = JOptionPane.showConfirmDialog(null, "Are you sure to logout?", "Logout", JOptionPane.YES_NO_OPTION);
 					if(choose == JOptionPane.YES_OPTION)
 					{
 						os.writeUTF(usernameGlobal+"-@@@\n");
@@ -925,7 +925,9 @@ public class Client extends JFrame{
 				buttonPanel.add(getFile);
 				buttonPanel.add(uploadFile);
 				
-				JScrollPane logFile = new JScrollPane(chatLogText);
+				fileLog = new JTextArea(20,50);
+				fileLog.setEditable(false);
+				JScrollPane logFile = new JScrollPane(fileLog);
 				
 				centerPanel.add(listFilePanel);
 				centerPanel.add(Box.createHorizontalStrut(900));
